@@ -202,3 +202,30 @@ To remove our stack you can use command below:
 ```
 docker stack rm swarm-test
 ```
+If we want worker machine to leave the swarm, then in worker terminal we need to execute:
+```
+docker swarm leave
+
+# output
+Node left the swarm.
+```
+If you want manager to leave the cluster then you should pass --force param
+```
+docker swarm leave
+Error response from daemon: You are attempting to leave the swarm on a node that is participating as a manager. Removing the last manager erases all current state of the swarm. Use `--force` to ignore this message.
+
+docker swarm leave --force
+Node left the swarm
+```
+To stop 2 VirtualBox machine you should use command below:
+```
+vagrant halt
+```
+To completely remove 2 VirtualBox machines you should execute:
+```
+vagrant destroy
+    swarm_worker: Are you sure you want to destroy the 'swarm_worker' VM? [y/N] y
+==> swarm_worker: Destroying VM and associated drives...
+    swarm_manager: Are you sure you want to destroy the 'swarm_manager' VM? [y/N] y
+==> swarm_manager: Destroying VM and associated drives...
+```
